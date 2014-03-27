@@ -33,7 +33,17 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+		// Register the event listener
+        document.addEventListener("menubutton", app.onMenuKeyDown, false);
         app.receivedEvent('deviceready');
+    },
+	//Menu Key callback
+	onMenuKeyDown = function () {
+		if (navigator.notification) {
+			navigator.notification.alert('Soy Eus', null, 'Hello', 'OK');
+		} else {
+			alert('Soy Eus');
+		}
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -47,3 +57,11 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function onDeviceReady() {
+        
+    }
+
+    // Handle the menu button
+    //
+    
