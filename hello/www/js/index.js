@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+		document.addEventListener("menubutton", this.onMenuKeyDown, false);
     },
     // deviceready Event Handler
     //
@@ -34,11 +35,10 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 		// Register the event listener
-        document.addEventListener("menubutton", app.onMenuKeyDown, false);
         app.receivedEvent('deviceready');
     },
 	//Menu Key callback
-	onMenuKeyDown = function () {
+	onMenuKeyDown: function () {
 		if (navigator.notification) {
 			navigator.notification.alert('Soy Eus', null, 'Hello', 'OK');
 		} else {
