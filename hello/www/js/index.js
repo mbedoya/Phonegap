@@ -11,7 +11,7 @@ var index_js = function(){
     this.onDispositivoListo = function(e){
 
         //Iniciarlizar los eventos cuando el dispositivo esté listo
-        this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
+        //this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
 
         var id = aplicacion.EVENTO_LISTO;
         var parentElement = document.getElementById(id);
