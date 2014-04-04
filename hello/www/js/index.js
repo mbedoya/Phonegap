@@ -11,6 +11,8 @@ var index_js = function(){
 
     this.onDispositivoListo = function(e){
 
+        alert('Listo');
+
         this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
 
         var id = app.EVENTO_LISTO;
