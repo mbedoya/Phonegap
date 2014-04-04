@@ -13,7 +13,7 @@ var index_js = function(){
 
         alert('Listo');
 
-        this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
+        //this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
 
         var id = app.EVENTO_LISTO;
         var parentElement = document.getElementById(id);
