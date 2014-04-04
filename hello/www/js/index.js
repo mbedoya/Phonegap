@@ -5,28 +5,25 @@ var index_js = function(){
     this.iniciar = function(){
         aplicacion = new app();
         aplicacion.inicializar(this.onDispositivoListo);
-
-        alert('incializado');
     }
 
+    //Método invocado cuando el dispositivo esté listo
     this.onDispositivoListo = function(e){
 
-        alert('Listo');
+        //Iniciarlizar los eventos cuando el dispositivo esté listo
+        this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
 
-        //this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
-
-        var id = app.EVENTO_LISTO;
+        var id = aplicacion.EVENTO_LISTO;
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+        console.log('Received Event: ' + e);
     }
 
     this.onBotonMenuPresionado = function (e) {
+
         if (navigator.notification) {
             navigator.notification.alert('Soy Eus', null, 'Hello', 'OK');
         } else {
