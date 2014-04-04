@@ -16,37 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-		document.addEventListener("menubutton", this.onMenuKeyDown, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-		// Register the event listener
-        app.receivedEvent('deviceready');
-    },
-	//Menu Key callback
-	onMenuKeyDown: function () {
-		if (navigator.notification) {
-			navigator.notification.alert('Soy Eus', null, 'Hello', 'OK');
-		} else {
-			alert('Soy Eus');
-		}
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
+
+var index_js = function(){
+
+    var aplicacion;
+
+    this.iniciar = function(){
+        aplicacion = new app();
+        aplicacion.inicializar(this.onDispositivoListo);
+    }
+
+    this.onDispositivoListo = function(){
+
+        this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
+
+        var id = app.EVENTO_LISTO;
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -56,12 +40,12 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
-};
 
-function onDeviceReady() {
-        
+    this.onBotonMenuPresionado = function () {
+        if (navigator.notification) {
+            navigator.notification.alert('Soy Eus', null, 'Hello', 'OK');
+        } else {
+            alert('Soy Eus');
+        }
     }
-
-    // Handle the menu button
-    //
-    
+}
