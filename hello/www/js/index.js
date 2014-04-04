@@ -5,9 +5,11 @@ var index_js = function(){
     this.iniciar = function(){
         aplicacion = new app();
         aplicacion.inicializar(this.onDispositivoListo);
+
+        alert('incializado');
     }
 
-    this.onDispositivoListo = function(){
+    this.onDispositivoListo = function(e){
 
         this.aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
 
@@ -22,7 +24,7 @@ var index_js = function(){
         console.log('Received Event: ' + id);
     }
 
-    this.onBotonMenuPresionado = function () {
+    this.onBotonMenuPresionado = function (e) {
         if (navigator.notification) {
             navigator.notification.alert('Soy Eus', null, 'Hello', 'OK');
         } else {

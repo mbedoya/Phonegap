@@ -44,7 +44,6 @@
                     </div>
                 </div>
 
-                <a href="hello.html#pageone" data-transition="none">Page One</a>
                 <a href="#pagetwo" data-transition="none">Page Two</a>
                 <a href="#windowpage" data-transition="none">Dialog</a>
             </div><!-- /content -->
@@ -53,6 +52,29 @@
             </div>--> <!-- /footer -->
 
         </div><!-- /page -->
+
+        <div data-role="page" id="pagetwo">
+
+            <div data-role="header">
+                <h1>My App</h1>
+            </div><!-- /header -->
+
+            <div data-role="content" class="ui-content">
+                <a href="#pageone" data-transition="none" >Go to Page One</a>
+            </div>
+        </div>
+
+        <div data-role="page" data-dialog="true" id="windowpage">
+
+            <div data-role="header">
+                <h1>My App</h1>
+            </div><!-- /header -->
+
+            <div data-role="content" class="ui-content">
+                I am a Window
+                <a href="#pageone" data-transition="none" >Go to Page One</a>
+            </div>
+        </div>
 
 
         <script src="js/jquery.js"></script>

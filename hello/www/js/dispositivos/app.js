@@ -9,6 +9,7 @@ var app = function() {
 
     this.inicializar = function(callback) {
         document.addEventListener(this.EVENTO_LISTO, callback, false);
+        alert('esperando evento');
     }
 
     this.escucharEventoMenu = function(callback){
