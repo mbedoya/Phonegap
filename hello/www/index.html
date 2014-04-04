@@ -24,16 +24,39 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+        <title>My App</title>
     </head>
     <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready <a href="hello.html">Go to Page</a> </p>
-            </div>
-        </div>
+
+        <div data-role="page" id="pageone">
+
+            <div data-role="header">
+                <h1>My App</h1>
+            </div><!-- /header -->
+
+            <div data-role="content" >
+                <div class="app">
+                    <h1>PhoneGap</h1>
+                    <div id="deviceready" class="blink">
+                        <p class="event listening">Connecting to Device</p>
+                        <p class="event received">Device is Ready </p>
+                    </div>
+                </div>
+
+                <a href="hello.html#pageone" data-transition="none">Page One</a>
+                <a href="#pagetwo" data-transition="none">Page Two</a>
+                <a href="#windowpage" data-transition="none">Dialog</a>
+            </div><!-- /content -->
+            <!--<div data-role="footer">
+                <h4>My Footer</h4>
+            </div>--> <!-- /footer -->
+
+        </div><!-- /page -->
+
+
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.mobile-1.4.2.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/dispositivos/app.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
