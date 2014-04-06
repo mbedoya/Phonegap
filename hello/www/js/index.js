@@ -11,12 +11,10 @@ var index_js = function(){
     //Método invocado cuando el dispositivo esté listo
     this.onDispositivoListo = function(e){
 
-        //Hacer click en el Splash para moverse a la página inicial
-        $("#splash a").click();
-
         //Iniciarlizar los eventos cuando el dispositivo esté listo
-        console.log(aplicacion);
-        //aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
+        alert(aplicacion);
+        alert(this);
+        aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
 
         var id = aplicacion.EVENTO_LISTO;
         var parentElement = document.getElementById(id);
