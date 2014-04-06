@@ -5,7 +5,7 @@ var index_js = function(){
     this.iniciar = function(){
 
         aplicacion = new app(this);
-        aplicacion.inicializar(this.onDispositivoListo);
+        aplicacion.inicializar(aplicacion.sender.onDispositivoListo);
     }
 
     //Método invocado cuando el dispositivo esté listo
