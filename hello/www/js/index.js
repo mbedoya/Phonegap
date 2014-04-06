@@ -15,7 +15,8 @@ var index_js = function(){
         $("#splash a").click();
 
         //Iniciarlizar los eventos cuando el dispositivo esté listo
-        aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
+        console.log(aplicacion);
+        //aplicacion.escucharEventoMenu(this.onBotonMenuPresionado);
 
         var id = aplicacion.EVENTO_LISTO;
         var parentElement = document.getElementById(id);
