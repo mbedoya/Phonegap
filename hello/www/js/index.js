@@ -4,7 +4,7 @@ var index_js = function(){
 
     this.iniciar = function(){
 
-        aplicacion = new app();
+        aplicacion = new app(this);
         aplicacion.inicializar(this.onDispositivoListo);
     }
 
@@ -12,7 +12,7 @@ var index_js = function(){
     this.onDispositivoListo = function(e){
 
         //Iniciarlizar los eventos cuando el dispositivo esté listo
-        aplicacion.escucharEventoMenu(onBotonMenuPresionado);
+        aplicacion.escucharEventoMenu(aplicacion.sender.onBotonMenuPresionado);
 
         var id = aplicacion.EVENTO_LISTO;
         var parentElement = document.getElementById(id);

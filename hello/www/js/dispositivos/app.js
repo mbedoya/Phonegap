@@ -1,7 +1,9 @@
 /**
  * Created by USUARIO on 04/04/2014.
  */
-var app = function() {
+var app = function(sender) {
+
+    this.sender = sender;
 
     //Listado de Eventos
     this.EVENTO_LISTO = 'deviceready';
