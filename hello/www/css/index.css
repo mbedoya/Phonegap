@@ -113,3 +113,12 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+#splash img{
+    padding-top: 30%;
+    padding-left: 20%;
+}
+
+#splash a {
+    display: block;
+}
