@@ -14,6 +14,7 @@ var app = function() {
     this.escucharEventoMenu = function(callback){
         alert("Evento Menu");
         document.addEventListener(this.EVENTO_BOTON_MENU, callback, false);
+        alert("Lsistening");
     }
 
 };
