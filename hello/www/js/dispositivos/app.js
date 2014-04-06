@@ -13,6 +13,8 @@ var app = function() {
 
     this.escucharEventoMenu = function(callback){
         alert("Evento Menu");
+        alert(this.EVENTO_BOTON_MENU);
+        alert(callback);
         document.addEventListener(this.EVENTO_BOTON_MENU, callback, false);
         alert("Lsistening");
     }
