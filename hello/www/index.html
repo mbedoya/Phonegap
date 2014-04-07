@@ -29,6 +29,46 @@
     </head>
     <body>
 
+
+        <div data-role="page" id="login" >
+            <div data-role="content" >
+                <table>
+                    <tr>
+                        <td>
+                            Usuario
+                        </td>
+                        <td>
+                            <input id="inputUsuario" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Clave
+                        </td>
+                        <td>
+                            <input id="inputClave" type="password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input id="botonIniciarSesion" type="button" value="Enviar" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div data-role="page" data-dialog="true" id="pageerroriniciosesion">
+            <div data-role="header">
+                <h1>My App</h1>
+            </div><!-- /header -->
+
+            <div data-role="content" class="ui-content">
+                Tu usuario y/o clave no son válidos.
+                <a href="#login" data-transition="none" >Cerrar</a>
+            </div>
+        </div>
+
         <div data-role="page" id="pageone" >
 
             <div data-role="header" id="header">

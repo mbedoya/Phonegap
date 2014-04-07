@@ -3,10 +3,36 @@ $(document).ready( function(){
 
     // ***** EVENTOS DE INTERFAZ *****
 
+    // INICIO DE SESIÓN
+
+    function finalizarInicioSesion(){
+        if (new Date().getSeconds() < 30){
+            $.mobile.changePage("#pageone", {transition: "none"});
+        }else{
+            $.mobile.changePage("#pageerroriniciosesion", {transition: "slideup"});
+        }
+
+    }
+
+    //Click al botón para iniciar sesión
+    $("#botonIniciarSesion").on("click", function(){
+
+        $.mobile.loading( 'show', {
+            text: 'Estás iniciando sesión...',
+            textVisible: true,
+            theme: 'a',
+            html: ""
+        });
+
+        setTimeout(finalizarInicioSesion, 3000);
+
+    });
+
     //Click al Menú
     $("#menu").on("click", function(){
          $("#pageone #enlaceMenu").click();
     });
+
 
 });
 
