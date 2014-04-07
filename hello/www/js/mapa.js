@@ -1,47 +1,11 @@
 
 $(document).ready( function(){
 
-    // ***** EVENTOS DE INTERFAZ *****
-
-    // INICIO DE SESIÓN
-
-    function finalizarInicioSesion(){
-        if (new Date().getSeconds() < 30){
-            $.mobile.changePage("#pageone", {transition: "none"});
-        }else{
-            $.mobile.changePage("#pageerroriniciosesion", {transition: "slideup"});
-        }
-    }
-
-    //Click al botón para iniciar sesión
-    $("#botonIniciarSesion").on("click", function(){
-
-        $.mobile.loading( 'show', {
-            text: 'Estás iniciando sesión...',
-            textVisible: true,
-            theme: 'a',
-            html: ""
-        });
-
-        setTimeout(finalizarInicioSesion, 3000);
-
-    });
-
-    //Click al Menú
-    $("#menu").on("click", function(){
-         $("#pageone #enlaceMenu").click();
-    });
-
-    //Click al Enlace Mapa
-    $("#enlaceMapa").on("click", function(){
-        $.mobile.changePage("mapa.html", {transition: "none"});
-    });
-
 
 });
 
 //Definición de la clase controladora, la cual recibe eventos del dispositivo
-var index_js = function(){
+var mapa_js = function(){
 
     var aplicacion;
 
