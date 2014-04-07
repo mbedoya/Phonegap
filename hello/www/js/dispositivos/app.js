@@ -8,13 +8,14 @@ var app = function(sender) {
     //Listado de Eventos
     this.EVENTO_LISTO = 'deviceready';
     this.EVENTO_BOTON_MENU = 'menubutton';
+    this.EVENTO_BOTON_ATRAS = 'backbutton';
 
     this.inicializar = function(callback) {
         document.addEventListener(this.EVENTO_LISTO, callback, false);
     }
 
-    this.escucharEventoMenu = function(callback){
-        document.addEventListener(this.EVENTO_BOTON_MENU, callback, false);
+    this.escucharEvento = function(evento,callback){
+        document.addEventListener(evento, callback, false);
     }
 
 };

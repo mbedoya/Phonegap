@@ -29,19 +29,29 @@
     </head>
     <body>
 
-        <div data-role="page" id="pageone">
+        <div data-role="page" id="pageone" >
 
-            <div data-role="header">
-                <h1>My App</h1>
+            <div data-role="header" id="header">
+                 <div id="menu">
+
+                 </div>
+                <a id="enlaceMenu"  class="enlaceMenu" href="#panelmenu">Menu</a>
+                 <h1>My App</h1>
             </div><!-- /header -->
+
+            <div data-role="panel" id="panelmenu">
+                <ul>
+                    <li><a href="#pagetwo" data-transition="none">Consultas</a></li>
+                    <li>Informes</li>
+                    <a href="#windowpage" data-transition="none">Dialog</a>
+                </ul>
+                <!-- panel content goes here -->
+            </div><!-- /panel -->
 
             <div data-role="content" >
                 <div class="app">
-                    <h1>&nbsp;</h1>
+                   
                 </div>
-
-                <a href="#pagetwo" data-transition="none">Page Two</a>
-                <a href="#windowpage" data-transition="none">Dialog</a>
             </div><!-- /content -->
             <!--<div data-role="footer">
                 <h4>My Footer</h4>

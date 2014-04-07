@@ -122,3 +122,32 @@ h1 {
 #splash a {
     display: block;
 }
+
+#menu{
+    background:url(../img/menu.png) no-repeat center top;
+    float: left;
+    display: block;
+    width: 50px;
+    height: 41px;
+    margin-left: 5px;
+}
+
+#menu img{
+    float: left;
+    display: block;
+    width: 50px;
+    height: 41px;
+    margin-left: 5px;
+}
+
+.enlacemenu{
+    display: none;
+    float: left;
+    display: block;
+}
+
+#panelmenu ul li{
+    text-decoration-line: underline;
+    list-style: none;
+    padding: 5px;
+}
