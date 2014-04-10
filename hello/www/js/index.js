@@ -23,7 +23,7 @@ $(document).ready( function(){
             html: ""
         });
 
-        setTimeout(finalizarInicioSesion, 3000);
+        setTimeout(finalizarInicioSesion, 1500);
 
     });
 
@@ -37,7 +37,7 @@ $(document).ready( function(){
         $.mobile.changePage("mapa.html", {transition: "none"});
     });
 
-    //Click al Boton Traer Datos
+    //Click al Boton Traer Datos (SOAP)
     $("#pagedemo #botonTraerDatos").on("click", function(){
 
         var url = 'http://wsf.cdyne.com/WeatherWS/Weather.asmx/';
@@ -48,26 +48,31 @@ $(document).ready( function(){
             <GetWeatherInformation  /> \
             </soap:Body> \
             </soap:Envelope>';
+        var soapAction = 'http://ws.cdyne.com/WeatherWS/GetWeatherInformation';
 
-        parser=new DOMParser();
-        xmlDoc=parser.parseFromString(mensaje,"text/xml")
-
-        $.soap({
-            url:    url,
-            method: metodo,
-            data: xmlDoc,
-            SOAPAction: 'http://ws.cdyne.com/WeatherWS/GetWeatherInformation',
-            envAttributes: {                                // additional attributes (like namespaces) for the Envelope:
-                'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
-                'xmlns:xsd': 'http://www.w3.org/2001/XMLSchema'
-            },
-            success: function(msg) {
+        var servicioSoap = new soap();
+        servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
+            function(msg) {
                 alert('exito');
-            },
-            error: function (msg) {
+            },function (msg) {
                 alert('error');
             }
-        });
+        );
+    });
+
+    //Click al Boton Traer Datos (REST)
+    $("#pagedemo #botonTraerDatosRest").on("click", function(){
+
+        var url = 'http://www.mocky.io/v2/53470a1bee61445e0c9d6176';
+        var servicioAjax = new ajax();
+        servicioAjax.invocarMetodo(url, ajax.TIPO_PETICION_POST, ajax.TIPO_DATO_JSONP, {},
+            function(msg) {
+                alert('exito');
+            },function (msg) {
+                alert('error');
+            }
+        );
+
     });
 
 });
