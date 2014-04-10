@@ -65,9 +65,9 @@ $(document).ready( function(){
 
         var url = 'http://www.mocky.io/v2/53470a1bee61445e0c9d6176';
         var servicioAjax = new ajax();
-        servicioAjax.invocarMetodo(url, ajax.TIPO_PETICION_POST, ajax.TIPO_DATO_JSONP, {},
+        servicioAjax.invocarMetodo(url, servicioAjax.TIPO_PETICION_POST, servicioAjax.TIPO_DATO_JSONP, {},
             function(msg) {
-                alert('exito');
+                alert(msg.name);
             },function (msg) {
                 alert('error');
             }
