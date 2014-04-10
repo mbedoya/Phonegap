@@ -40,23 +40,31 @@ $(document).ready( function(){
     //Click al Boton Traer Datos
     $("#pagedemo #botonTraerDatos").on("click", function(){
 
-        var url = 'http://wsf.cdyne.com/WeatherWS/Weather.asmx';
+        var url = 'http://wsf.cdyne.com/WeatherWS/Weather.asmx/';
         var metodo = 'GetWeatherInformation';
         var mensaje =
-            '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
+            '<soap:Envelope > \
             <soap:Body> \
-            <GetWeatherInformation xmlns="http://ws.cdyne.com/WeatherWS/" /> \
+            <GetWeatherInformation  /> \
             </soap:Body> \
             </soap:Envelope>';
+
+        parser=new DOMParser();
+        xmlDoc=parser.parseFromString(mensaje,"text/xml")
 
         $.soap({
             url:    url,
             method: metodo,
-            data: mensaje,
+            data: xmlDoc,
+            SOAPAction: 'http://ws.cdyne.com/WeatherWS/GetWeatherInformation',
+            envAttributes: {                                // additional attributes (like namespaces) for the Envelope:
+                'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+                'xmlns:xsd': 'http://www.w3.org/2001/XMLSchema'
+            },
             success: function(msg) {
                 alert('exito');
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function (msg) {
                 alert('error');
             }
         });
