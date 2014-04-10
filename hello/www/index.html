@@ -84,7 +84,8 @@
                     <li><a href="#pagetwo" data-transition="none">Consultas</a></li>
                     <li>Informes</li>
                     <li><a href="#windowpage" data-transition="none">Dialog</a></li>
-                    <a id="enlaceMapa" data-transition="none">Mapa</a>
+                    <li> <a id="enlaceMapa" data-transition="none">Mapa</a></li>
+                    <li> <a href="#pagedemo" data-transition="none">Servicio</a></li>
                 </ul>
                 <!-- panel content goes here -->
             </div><!-- /panel -->
@@ -111,8 +112,8 @@
             </div>
         </div>
 
+        <!-- Ventana -->
         <div data-role="page" data-dialog="true" id="windowpage">
-
             <div data-role="header">
                 <h1>My App</h1>
             </div><!-- /header -->
@@ -123,8 +124,21 @@
             </div>
         </div>
 
+        <div data-role="page" id="pagedemo">
+            <div data-role="header">
+                <h1>My App - jquery</h1>
+            </div>
+
+            <div id="divList" data-role="content">
+                <div id="DEMO">
+                    <input id="botonTraerDatos" type="button" value="GET DATA" />
+                </div>
+                <ul id="details" data-role="listview" data-inset="true"></ul>
+            </div>
+        </div>
 
         <script src="js/jquery.js"></script>
+        <script src="js/jquery.soap.js"></script>
         <script src="js/jquery.mobile-1.4.2.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/dispositivos/app.js"></script>
