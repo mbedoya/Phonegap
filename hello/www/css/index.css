@@ -150,3 +150,9 @@ h1 {
     list-style: none;
     padding: 5px;
 }
+
+div.migan-pan{
+    background-color: #005599;
+    color: #f6f6f6;
+    font-size: 15px;
+}

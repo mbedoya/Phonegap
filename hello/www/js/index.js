@@ -1,4 +1,22 @@
 
+//All Loaded Pages
+var pages = [];
+
+
+$('div[data-role=page]').bind('pagecreate', function(event){
+
+    console.log('pagecreate');
+    console.log(event.target);
+
+    //Adicionar los Headers a todas las páginas
+    var contexto = {nombre_pagina: "Inicio"};
+    var plantillaHeader = Handlebars.compile($("#header-template").html());
+    var htmlHeader = plantillaHeader(contexto);
+    $(event.target).children("div[data-role=content]").prepend(htmlHeader);
+
+    console.log("breadcrumb added");
+});
+
 $(document).ready( function(){
 
     // ***** EVENTOS DE INTERFAZ *****
@@ -7,9 +25,9 @@ $(document).ready( function(){
 
     function finalizarInicioSesion(){
         if (new Date().getSeconds() < 60){
-            $.mobile.changePage("#pageone", {transition: "none"});
+            $.mobile.changePage("#paginaHome", {transition: "none"});
         }else{
-            $.mobile.changePage("#pageerroriniciosesion", {transition: "slideup"});
+            $.mobile.changePage("#paginaErrorInicioSesion", {transition: "slideup"});
         }
     }
 
@@ -23,13 +41,40 @@ $(document).ready( function(){
             html: ""
         });
 
+        var usuario = $("#inputUsuario").val();
+        var clave = $("#inputClave").val();
+
+        var url = 'http://190.90.184.13:9081/AntaresWebServices/InterfaceAntaresServiceService/';
+        var metodo = 'validacionAntares';
+        var mensaje =
+            '<SOAP-ENV:Envelope > \
+            <SOAP-ENV:Body> \
+            <ns1:validacionAntares > \
+            <arg0> \
+            <usuario>NOacgarzon</usuario> \
+            <password>Ag52884325</password> \
+            </arg0> \
+            <ns1:validacionAntares > \
+            </SOAP-ENV:Body> \
+            </SOAP-ENV:Envelope>';
+        var soapAction = 'http://ws.cdyne.com/WeatherWS/GetWeatherInformation';
+
+        var servicioSoap = new soap();
+        servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
+            function(msg) {
+                alert('exito');
+            },function (msg) {
+                alert('error');
+            }
+        );
+
         setTimeout(finalizarInicioSesion, 1500);
 
     });
 
     //Click al Menú
     $("#menu").on("click", function(){
-         $("#pageone #enlaceMenu").click();
+        $("#pageone #enlaceMenu").click();
     });
 
     //Click al Enlace Mapa
@@ -72,7 +117,6 @@ $(document).ready( function(){
                 alert('error');
             }
         );
-
     });
 
 });

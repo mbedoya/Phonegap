@@ -13,10 +13,10 @@ var soap = function() {
             url:    url,
             method: metodo,
             data: documentoXML,
-            SOAPAction: soapAction,
+            //SOAPAction: soapAction,
             envAttributes: {                                // additional attributes (like namespaces) for the Envelope:
-                'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
-                'xmlns:xsd': 'http://www.w3.org/2001/XMLSchema'
+                'xmlns:SOAP-ENV': 'http://schemas.xmlsoap.org/soap/envelope/',
+                'xmlns:ns1': 'http://interfaceantares.antares.com.co/'
             },
             success: callbackExito,
             error: callbackError

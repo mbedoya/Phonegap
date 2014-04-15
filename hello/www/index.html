@@ -1,159 +1,161 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
-        <title>My App</title>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+    <title>My App</title>
+</head>
+<body>
 
+    <!-- Página de Login -->
+    <div data-role="page" id="paginaInicioSesion" >
 
-        <div data-role="page" id="login" >
-            <div data-role="content" >
-                <table>
-                    <tr>
-                        <td>
-                            Usuario
-                        </td>
-                        <td>
-                            <input id="inputUsuario" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Clave
-                        </td>
-                        <td>
-                            <input id="inputClave" type="password" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input id="botonIniciarSesion" type="button" value="Enviar" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <div data-role="header" >
+                <h1>Novaventa</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" >
+            <table>
+                <tr>
+                    <td>
+                        Usuario
+                    </td>
+                    <td>
+                        <input id="inputUsuario" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Clave
+                    </td>
+                    <td>
+                        <input id="inputClave" type="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input id="botonIniciarSesion" type="button" value="Enviar" />
+                    </td>
+                </tr>
+            </table>
+
+        </div><!-- /content -->
+
+    </div><!-- /Página de Login -->
+
+    <!-- Página Error en inicio de sesión -->
+    <div data-role="page" data-dialog="true" id="paginaErrorInicioSesion">
+
+        <div data-role="header">
+            <h1>Novaventa</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="ui-content">
+            Tu usuario y/o clave no son válidos.
+            <a href="#paginaInicioSesion" data-transition="none" >Cerrar</a>
         </div>
 
-        <div data-role="page" data-dialog="true" id="pageerroriniciosesion">
-            <div data-role="header">
-                <h1>My App</h1>
-            </div><!-- /header -->
+    </div><!-- /pagina error inicio sesion -->
 
-            <div data-role="content" class="ui-content">
-                Tu usuario y/o clave no son válidos.
-                <a href="#login" data-transition="none" >Cerrar</a>
+    <div data-role="page" id="paginaHome" >
+
+        <div data-role="header" id="header">
+            <div id="menu">
+
             </div>
+            <a id="enlaceMenu"  class="enlaceMenu" href="#panelmenu">Menu</a>
+            <h1>Novaventa</h1>
+        </div><!-- /header -->
+
+        <div data-role="panel" id="panelmenu" data-position="left" data-display="push">
+            <ul>
+                <li><a href="#pagetwo" data-transition="none">Consultas</a></li>
+                <li>Informes</li>
+                <li><a href="#windowpage" data-transition="none">Dialog</a></li>
+                <li> <a id="enlaceMapa" data-transition="none">Mapa</a></li>
+                <li> <a href="#pagedemo" data-transition="none">Servicio</a></li>
+            </ul>
+            <!-- panel content goes here -->
+        </div><!-- /panel -->
+
+        <div data-role="content" >
+            <div class="app">
+
+            </div>
+        </div><!-- /content -->
+        <!--<div data-role="footer">
+            <h4>My Footer</h4>
+        </div>--> <!-- /footer -->
+
+    </div><!-- /page -->
+
+    <div data-role="page" id="pagetwo">
+
+        <div data-role="header">
+            <h1>My App</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="ui-content">
+            <a href="#pageone" data-transition="none" >Go to Page One</a>
+        </div>
+    </div>
+
+    <!-- Ventana -->
+    <div data-role="page" data-dialog="true" id="windowpage">
+        <div data-role="header">
+            <h1>My App</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="ui-content">
+            I am a Window
+            <a href="#pageone" data-transition="none" >Go to Page One</a>
+        </div>
+    </div>
+
+    <div data-role="page" id="pagedemo">
+
+        <div data-role="header" id="header">
         </div>
 
-        <div data-role="page" id="pageone" >
-
-            <div data-role="header" id="header">
-                 <div id="menu">
-
-                 </div>
-                <a id="enlaceMenu"  class="enlaceMenu" href="#panelmenu">Menu</a>
-                 <h1>My App</h1>
-            </div><!-- /header -->
-
-            <div data-role="panel" id="panelmenu" data-position="left" data-display="push">
-                <ul>
-                    <li><a href="#pagetwo" data-transition="none">Consultas</a></li>
-                    <li>Informes</li>
-                    <li><a href="#windowpage" data-transition="none">Dialog</a></li>
-                    <li> <a id="enlaceMapa" data-transition="none">Mapa</a></li>
-                    <li> <a href="#pagedemo" data-transition="none">Servicio</a></li>
-                </ul>
-                <!-- panel content goes here -->
-            </div><!-- /panel -->
-
-            <div data-role="content" >
-                <div class="app">
-
-                </div>
-            </div><!-- /content -->
-            <!--<div data-role="footer">
-                <h4>My Footer</h4>
-            </div>--> <!-- /footer -->
-
-        </div><!-- /page -->
-
-        <div data-role="page" id="pagetwo">
-
-            <div data-role="header">
-                <h1>My App</h1>
-            </div><!-- /header -->
-
-            <div data-role="content" class="ui-content">
-                <a href="#pageone" data-transition="none" >Go to Page One</a>
+        <div id="divList" data-role="content">
+            <div id="DEMO">
+                <input id="botonTraerDatos" type="button" value="GET DATA Soap" />
             </div>
+            <ul id="details" data-role="listview" data-inset="true"></ul>
         </div>
 
-        <!-- Ventana -->
-        <div data-role="page" data-dialog="true" id="windowpage">
-            <div data-role="header">
-                <h1>My App</h1>
-            </div><!-- /header -->
-
-            <div data-role="content" class="ui-content">
-                I am a Window
-                <a href="#pageone" data-transition="none" >Go to Page One</a>
+        <div id="divList" data-role="content">
+            <div id="DEMO">
+                <input id="botonTraerDatosRest" type="button" value="GET DATA Rest" />
             </div>
         </div>
+    </div>
 
-        <div data-role="page" id="pagedemo">
-            <div data-role="header">
-                <h1>My App - jquery</h1>
-            </div>
-
-            <div id="divList" data-role="content">
-                <div id="DEMO">
-                    <input id="botonTraerDatos" type="button" value="GET DATA Soap" />
-                </div>
-                <ul id="details" data-role="listview" data-inset="true"></ul>
-            </div>
-
-            <div id="divList" data-role="content">
-                <div id="DEMO">
-                    <input id="botonTraerDatosRest" type="button" value="GET DATA Rest" />
-                </div>
-            </div>
+    <!-- Plantillas de Handlebars -->
+    <script id="header-template" type="text/x-handlebars-template">
+        <div class="migan-pan">
+            <div class="nombre-pagina">{{nombre_pagina}}</div>
         </div>
+    </script>
 
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery.soap.js"></script>
-        <script src="js/comunicacion/serviciosweb/soap.js"></script>
-        <script src="js/comunicacion/serviciosweb/ajax.js"></script>
-        <script src="js/jquery.mobile-1.4.2.js"></script>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/dispositivos/app.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            var miControlador = new index_js();
-            miControlador.iniciar();
-        </script>
-    </body>
+    <!-- Scripts de la Aplicación -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.soap.js"></script>
+    <script src="js/comunicacion/serviciosweb/soap.js"></script>
+    <script src="js/comunicacion/serviciosweb/ajax.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+    <script src="js/handlebars-v1.3.0.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/dispositivos/app.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        var miControlador = new index_js();
+        miControlador.iniciar();
+    </script>
+</body>
 </html>
