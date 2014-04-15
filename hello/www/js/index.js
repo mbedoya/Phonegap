@@ -44,7 +44,7 @@ $(document).ready( function(){
         var usuario = $("#inputUsuario").val();
         var clave = $("#inputClave").val();
 
-        var url = 'http://190.90.184.13:9081/AntaresWebServices/InterfaceAntaresServiceService/';
+        var url = 'http://190.90.184.13:9081/AntaresWebServices/InterfaceAntaresServiceService';
         var metodo = 'validacionAntares';
         var mensaje =
             '<SOAP-ENV:Envelope > \
@@ -57,18 +57,18 @@ $(document).ready( function(){
             <ns1:validacionAntares > \
             </SOAP-ENV:Body> \
             </SOAP-ENV:Envelope>';
-        var soapAction = 'http://ws.cdyne.com/WeatherWS/GetWeatherInformation';
+        var soapAction = 'validacionAntares';
 
         var servicioSoap = new soap();
         servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
             function(msg) {
-                alert('exito');
+                alert('exito  yupi!!!!');
             },function (msg) {
                 alert('error');
             }
         );
 
-        setTimeout(finalizarInicioSesion, 1500);
+        //setTimeout(finalizarInicioSesion, 1500);
 
     });
 
