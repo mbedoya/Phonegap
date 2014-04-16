@@ -1,7 +1,7 @@
 
 //All Loaded Pages
 var pages = [];
-
+var nombreUsuario = '';
 
 $('div[data-role=page]').bind('pagecreate', function(event){
 
@@ -51,38 +51,36 @@ $(document).ready( function(){
             <SOAP-ENV:Body> \
             <ns1:validacionAntares > \
             <arg0> \
-            <usuario>NOacgarzon</usuario> \
-            <password>Ag52884325</password> \
+            <usuario>{1}</usuario> \
+            <password>{2}</password> \
             </arg0> \
             <ns1:validacionAntares > \
             </SOAP-ENV:Body> \
             </SOAP-ENV:Envelope>';
         var soapAction = 'validacionAntares';
 
+        mensaje = mensaje.replace("{1}", usuario);
+        mensaje = mensaje.replace("{2}", clave);
+
         var servicioSoap = new soap();
         servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
             function(msg) {
-
                 $.mobile.loading('hide');
-                //alert($(msg).text());
-                //var xmlText = $(msg).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
-                //alert(xmlText);
             },function (msg) {
                 $.mobile.loading('hide');
-                alert('error');
+                alert('Error iniciando sesión');
             },function(data, textStatus, jqXHR) {
-
-                $("#txtResultado").val(JSON.stringify(x2js.xml_str2json(data)));
-                alert($("#txtResultado").val());
-                
-                $("#txtResultado").val(JSON.stringify(x2js.xml_str2json($(data).val())));
-                alert($("#txtResultado").val());
-
+                var razonRechazo = data.getElementsByTagName("razonRechazo");
+                //Usuario válido?
+                if(razonRechazo != null && razonRechazo.length == 0){
+                    nombreUsuario = data.getElementsByTagName("nombreCompleto")[0].textContent;
+                    $("#nombreUsaurio").html("<b>" + nombreUsuario + "</b>");
+                    $.mobile.changePage("#paginaHome", {transition: "none"});
+                }else{
+                    $.mobile.changePage("#paginaErrorInicioSesion", {transition: "slideup"});
+                }
             }
         );
-
-        //setTimeout(finalizarInicioSesion, 1500);
-
     });
 
     //Click al Menú
