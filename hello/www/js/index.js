@@ -72,8 +72,8 @@ $(document).ready( function(){
                 alert('error');
             },function(data, textStatus, jqXHR) {
                 alert(textStatus);
-                $("#txtResultado").val($(data).html());
-                alert(this.xmlToJson(data).val());
+                $("#txtResultado").val($(data).text());
+                alert(this.xmlToJson($(data)).val());
             }
         );
 
