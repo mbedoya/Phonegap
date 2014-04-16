@@ -71,9 +71,11 @@ $(document).ready( function(){
                 $.mobile.loading('hide');
                 alert('error');
             },function(data, textStatus, jqXHR) {
-                alert(textStatus);
-                $("#txtResultado").val($(data).text());
-                alert(this.xmlToJson($(data)).val());
+
+                $("#txtResultado").val(JSON.stringify(x2js.xml_str2json($(data).val())));
+                alert($("#txtResultado").val());
+                $("#txtResultado").val(JSON.stringify(x2js.xml_str2json(data)));
+                alert($("#txtResultado").val());
             }
         );
 
