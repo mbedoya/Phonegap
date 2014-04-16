@@ -37,7 +37,7 @@ $(document).ready( function(){
         $.mobile.loading( 'show', {
             text: 'Estás iniciando sesión...',
             textVisible: true,
-            theme: 'a',
+            theme: 'b',
             html: ""
         });
 
@@ -62,28 +62,28 @@ $(document).ready( function(){
         var servicioSoap = new soap();
         servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
             function(msg) {
-                alert($(msg).text());
-                var xmlText = $(msg).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
-                alert(xmlText);
+
+                $.mobile.loading('hide');
+                //alert($(msg).text());
+                //var xmlText = $(msg).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
+                //alert(xmlText);
             },function (msg) {
+                $.mobile.loading('hide');
                 alert('error');
             },function(data, textStatus, jqXHR) {
-
-                $("#txtResultado").val($(data));
-
+                $("#txtResultado").val($(data).html());
                 alert(textStatus);
                 var xmlElement = $(data).text();
-                //for (var i = 0; i < xmlElement.attributes.length; i++) {
-                //    var attrib = xmlElement.attributes[i];
-                //    if (attrib.specified) {
-                //        alert(attrib.name + " = " + attrib.value);
-                //    }
-                //}
                 alert(xmlElement);
+                for (var i = 0; i < data.attributes.length; i++) {
+                    var attrib = data.attributes[i];
+                    if (attrib.specified) {
+                        alert(attrib.name + " = " + attrib.value);
+                    }
+                }
                 //alert(this.xmlToJson(jqXHR));
-                var xmlText = $(jqXHR).html();
+                var xmlText = $(data).html();
                 alert(xmlText);
-
             }
         );
 
