@@ -63,6 +63,8 @@ $(document).ready( function(){
         servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
             function(msg) {
                 alert($(msg).text());
+                var xmlText = $(msg).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
+                alert(xmlText);
             },function (msg) {
                 alert('error');
             }
