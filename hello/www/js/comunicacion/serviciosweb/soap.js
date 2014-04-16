@@ -24,12 +24,10 @@ var soap = function() {
         }).done(function(data, textStatus, jqXHR) {
             alert("done");
 
-            var xmlText = $(data).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
-            alert(xmlText).first().html();
-            //alert(data);
+            var xmlText = $(data).id;
+            alert(xmlText);
             alert(textStatus);
-
-            xmlText = $(jqXHR).children();
+            xmlText = $(jqXHR).id;
             alert(xmlText);
         });
     }
