@@ -72,10 +72,12 @@ $(document).ready( function(){
                 alert('error');
             },function(data, textStatus, jqXHR) {
 
-                $("#txtResultado").val(JSON.stringify(x2js.xml_str2json($(data).val())));
-                alert($("#txtResultado").val());
                 $("#txtResultado").val(JSON.stringify(x2js.xml_str2json(data)));
                 alert($("#txtResultado").val());
+                
+                $("#txtResultado").val(JSON.stringify(x2js.xml_str2json($(data).val())));
+                alert($("#txtResultado").val());
+
             }
         );
 
