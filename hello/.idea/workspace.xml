@@ -36,8 +36,8 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2873">
-              <caret line="66" column="31" selection-start-line="65" selection-start-column="16" selection-end-line="66" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2873">
+              <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
               <folding>
                 <marker date="1397607344987" expanded="true" signature="1418:1726" placeholder="..." />
                 <marker date="1397607344987" expanded="true" signature="1449:1691" placeholder="..." />
@@ -54,8 +54,8 @@
       <file leaf-file-name="soap.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/comunicacion/serviciosweb/soap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.757085" vertical-offset="0" max-vertical-offset="748">
-              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.74763834" vertical-offset="687" max-vertical-offset="1428">
+              <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -294,8 +294,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2873">
-          <caret line="66" column="31" selection-start-line="65" selection-start-column="16" selection-end-line="66" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2873">
+          <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
           <folding>
             <marker date="1397607344987" expanded="true" signature="1418:1726" placeholder="..." />
             <marker date="1397607344987" expanded="true" signature="1449:1691" placeholder="..." />
@@ -310,8 +310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/comunicacion/serviciosweb/soap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.757085" vertical-offset="0" max-vertical-offset="748">
-          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.74763834" vertical-offset="687" max-vertical-offset="1428">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
           <folding />
         </state>
       </provider>
