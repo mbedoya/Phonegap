@@ -23,9 +23,15 @@ var soap = function() {
             error: callbackError
         }).done(function(data, textStatus, jqXHR) {
             alert("done");
-            alert(data);
-            alert(textStatus);
-            alert(jqXHR);
+
+            var xmlText = $(data).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
+            alert(xmlText);
+
+            //alert(data);
+            //alert(textStatus);
+
+            xmlText = $(jqXHR).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
+            alert(xmlText);
         });
     }
 
