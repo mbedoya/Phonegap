@@ -21,6 +21,11 @@ var soap = function() {
             },
             success: callbackExito,
             error: callbackError
+        }).done(function(data, textStatus, jqXHR) {
+            alert("done");
+            alert(data);
+            alert(textStatus);
+            alert(jqXHR);
         });
     }
 
