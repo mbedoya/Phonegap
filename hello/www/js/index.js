@@ -69,7 +69,7 @@ $(document).ready( function(){
                 alert('error');
             },function(data, textStatus, jqXHR) {
 
-                $("#txtResultado").val(data);
+                $("#txtResultado").val($(data));
 
                 alert(textStatus);
                 var xmlElement = $(data).text();
@@ -81,7 +81,7 @@ $(document).ready( function(){
                 //}
                 alert(xmlElement);
                 alert(this.xmlToJson(jqXHR));
-                var xmlText = $(jqXHR).contents();
+                var xmlText = $(jqXHR).html();
                 alert(xmlText);
 
             }
