@@ -25,12 +25,11 @@ var soap = function() {
             alert("done");
 
             var xmlText = $(data).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
-            alert(xmlText);
-
+            alert(xmlText).first().html();
             //alert(data);
-            //alert(textStatus);
+            alert(textStatus);
 
-            xmlText = $(jqXHR).find("soapenv\\:Body").find("dlwmin\\:validacionAntaresResponse").find("return").find("usuario").text();
+            xmlText = $(jqXHR).children();
             alert(xmlText);
         });
     }
