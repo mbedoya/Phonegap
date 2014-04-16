@@ -42,7 +42,7 @@ var soap = function() {
         return obj;
     }
 
-    this.invocarMetodo = function(url, metodo, mensajeXML, soapAction, callbackExito, callbackError) {
+    this.invocarMetodo = function(url, metodo, mensajeXML, soapAction, callbackExito, callbackError, callbackDone) {
 
         parser = new DOMParser();
         documentoXML = parser.parseFromString(mensajeXML,"text/xml");
@@ -59,21 +59,7 @@ var soap = function() {
             },
             success: callbackExito,
             error: callbackError
-        }).done(function(data, textStatus, jqXHR) {
-            alert(textStatus);
-            var xmlElement = $(data).text();
-            //for (var i = 0; i < xmlElement.attributes.length; i++) {
-            //    var attrib = xmlElement.attributes[i];
-            //    if (attrib.specified) {
-            //        alert(attrib.name + " = " + attrib.value);
-            //    }
-            //}
-            alert(xmlElement);
-            alert(this.xmlToJson(jqXHR));
-            var xmlText = $(jqXHR).contents();
-            alert(xmlText);
-
-        });
+        }).done(callbackDone);
     }
 
 };

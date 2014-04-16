@@ -67,6 +67,23 @@ $(document).ready( function(){
                 alert(xmlText);
             },function (msg) {
                 alert('error');
+            },function(data, textStatus, jqXHR) {
+
+                $("#txtResultado").val(data);
+
+                alert(textStatus);
+                var xmlElement = $(data).text();
+                //for (var i = 0; i < xmlElement.attributes.length; i++) {
+                //    var attrib = xmlElement.attributes[i];
+                //    if (attrib.specified) {
+                //        alert(attrib.name + " = " + attrib.value);
+                //    }
+                //}
+                alert(xmlElement);
+                alert(this.xmlToJson(jqXHR));
+                var xmlText = $(jqXHR).contents();
+                alert(xmlText);
+
             }
         );
 
