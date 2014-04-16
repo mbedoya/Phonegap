@@ -80,7 +80,7 @@ $(document).ready( function(){
                 //    }
                 //}
                 alert(xmlElement);
-                alert(this.xmlToJson(jqXHR));
+                //alert(this.xmlToJson(jqXHR));
                 var xmlText = $(jqXHR).html();
                 alert(xmlText);
 
