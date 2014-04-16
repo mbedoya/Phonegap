@@ -22,12 +22,16 @@ var soap = function() {
             success: callbackExito,
             error: callbackError
         }).done(function(data, textStatus, jqXHR) {
-            alert("done");
-
-            var xmlText = $(data).id;
-            alert(xmlText);
             alert(textStatus);
-            xmlText = $(jqXHR).id;
+            var xmlElement = $(data).first();
+            for (var i = 0; i < xmlElement.attributes.length; i++) {
+                var attrib = xmlElement.attributes[i];
+                if (attrib.specified) {
+                    alert(attrib.name + " = " + attrib.value);
+                }
+            }
+            //alert(xmlElement);
+            var xmlText = $(jqXHR).children().length;
             alert(xmlText);
         });
     }
