@@ -23,14 +23,14 @@ var soap = function() {
             error: callbackError
         }).done(function(data, textStatus, jqXHR) {
             alert(textStatus);
-            var xmlElement = $(data).first();
-            for (var i = 0; i < xmlElement.attributes.length; i++) {
-                var attrib = xmlElement.attributes[i];
-                if (attrib.specified) {
-                    alert(attrib.name + " = " + attrib.value);
-                }
-            }
-            //alert(xmlElement);
+            var xmlElement = $(data).text();
+            //for (var i = 0; i < xmlElement.attributes.length; i++) {
+            //    var attrib = xmlElement.attributes[i];
+            //    if (attrib.specified) {
+            //        alert(attrib.name + " = " + attrib.value);
+            //    }
+            //}
+            alert(xmlElement);
             var xmlText = $(jqXHR).children().length;
             alert(xmlText);
         });
