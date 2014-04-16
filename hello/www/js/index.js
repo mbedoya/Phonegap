@@ -71,19 +71,9 @@ $(document).ready( function(){
                 $.mobile.loading('hide');
                 alert('error');
             },function(data, textStatus, jqXHR) {
-                $("#txtResultado").val($(data).html());
                 alert(textStatus);
-                var xmlElement = $(data).text();
-                alert(xmlElement);
-                for (var i = 0; i < data.attributes.length; i++) {
-                    var attrib = data.attributes[i];
-                    if (attrib.specified) {
-                        alert(attrib.name + " = " + attrib.value);
-                    }
-                }
-                //alert(this.xmlToJson(jqXHR));
-                var xmlText = $(data).html();
-                alert(xmlText);
+                $("#txtResultado").val($(data).html());
+                alert(this.xmlToJson(data).val());
             }
         );
 
