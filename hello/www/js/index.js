@@ -62,7 +62,7 @@ $(document).ready( function(){
         var servicioSoap = new soap();
         servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
             function(msg) {
-                alert('exito  yupi!!!!');
+                alert($(msg).text());
             },function (msg) {
                 alert('error');
             }

@@ -14,7 +14,7 @@ var soap = function() {
             appendMethodToUrl: false,
             //method: metodo,
             data: documentoXML,
-            SOAPAction: soapAction,
+            //SOAPAction: soapAction,
             envAttributes: {                                // additional attributes (like namespaces) for the Envelope:
                 'xmlns:SOAP-ENV': 'http://schemas.xmlsoap.org/soap/envelope/',
                 'xmlns:ns1': 'http://interfaceantares.antares.com.co/'
