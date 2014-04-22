@@ -14,6 +14,25 @@ migasPan['paginaInformes'] = 'INFORMES';
 migasPan['paginaConsultasGerenteZona'] = 'CONSULTAS DE GERENTE DE ZONA';
 migasPan['paginaInscripcionesGerenteZona'] = 'INSCRIPCIONES DETALLADAS DE GERENTE DE ZONA';
 
+var respuestaConsultaGerenteZona = {
+    sugerido: 100,
+    consultas: 50,
+    proyectado: 90,
+    creditos: 50,
+    contado: 10
+}
+
+function animacionProyeccion(valor){
+
+    $("#graficoProyectado").progressbar({
+        value: 1
+    });
+
+    $("#graficoProyectado > .ui-progressbar-value").animate({
+        width: valor + "%"
+    }, 2000);
+}
+
 $(document).ready( function(){
 
     // ***** EVENTOS DE INTERFAZ *****
@@ -27,25 +46,30 @@ $(document).ready( function(){
     });
 
     $("#paginaConsultasGerenteZona").bind("pageinit", function(event){
+
         $( "#graficoSugerido" ).progressbar({
-            value: 37
+            value: respuestaConsultaGerenteZona.sugerido
         });
 
         $( "#graficoConsultas" ).progressbar({
-            value: 95
+            value: respuestaConsultaGerenteZona.consultas
         });
 
         $( "#graficoProyectado" ).progressbar({
-            value: 120
-        });
+            value: 1
+        })
 
         $( "#graficoCreditos" ).progressbar({
-            value: 20
+            value: respuestaConsultaGerenteZona.creditos
         });
 
         $( "#graficoContado" ).progressbar({
-            value: 5
+            value: respuestaConsultaGerenteZona.contado
         });
+    });
+
+    $("#paginaConsultasGerenteZona").bind("pageshow", function(event){
+        setTimeout(animacionProyeccion(respuestaConsultaGerenteZona.proyectado), 5000);
     });
 
     // INICIO DE SESIÓN
@@ -87,7 +111,8 @@ $(document).ready( function(){
                 $.mobile.loading('hide');
             },function (msg) {
                 $.mobile.loading('hide');
-                alert('Error iniciando sesión');
+                $( "#popupError #mensaje").html("Error en el proceso de autenticación");
+                $( "#popupError" ).popup( "open" );
             },function(data, textStatus, jqXHR) {
                 var razonRechazo = data.getElementsByTagName("razonRechazo");
                 //Usuario válido?
@@ -96,7 +121,8 @@ $(document).ready( function(){
                     $("#nombreUsaurio").html("<b>" + nombreUsuario + "</b>");
                     $.mobile.changePage("#paginaHome", {transition: "none"});
                 }else{
-                    $.mobile.changePage("#paginaErrorInicioSesion", {transition: "slideup"});
+                    $( "#popupError #mensaje").html("Tu usuario y/o clave no son válidos.");
+                    $( "#popupError" ).popup( "open" );
                 }
             }
         );

@@ -19,6 +19,14 @@
                 <h1>Novaventa</h1>
         </div><!-- /header -->
 
+        <!-- POPUP DE ERROR -->
+
+        <div id="popupError" data-role="popup" data-transition="slidedown" data-overlay-theme="a">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+            <img src="img/error.png" />
+            <div id="mensaje" style="width: 300px; margin: 10px;"></div>
+        </div>
+
         <div data-role="content" >
             <table>
                 <tr>
@@ -52,26 +60,12 @@
 
     </div><!-- /Página de Login -->
 
-    <!-- Página Error en inicio de sesión -->
-    <div data-role="page" data-dialog="true" id="paginaErrorInicioSesion">
-
-        <div data-role="header">
-            <h1>Novaventa</h1>
-        </div><!-- /header -->
-
-        <div data-role="content" class="ui-content">
-            Tu usuario y/o clave no son válidos.
-            <a href="#paginaInicioSesion" data-transition="none" >Cerrar</a>
-        </div>
-
-    </div><!-- /pagina error inicio sesion -->
-
     <!-- HOME -->
 
     <div data-role="page" id="paginaHome" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu" data-transition="none">Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none" data-ajax="false" >Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -100,7 +94,7 @@
     <div data-role="page" id="paginaInformes" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu" data-transition="none">Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none" data-ajax="false" >Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -129,7 +123,7 @@
     <div data-role="page" id="paginaConsultasGerenteZona" data-theme="a" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu" data-transition="none" >Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none" data-ajax="false" >Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -179,7 +173,7 @@
     <div data-role="page" id="paginaInscripcionesGerenteZona" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu" data-transition="none" >Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none" data-ajax="false" >Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -200,9 +194,17 @@
 
     </div><!-- /page -->
 
+    <!-- Plantillas de Handlebars -->
+    <script id="header-template" type="text/x-handlebars-template">
+        <div class="migan-pan">
+        <div class="nombre-pagina">{{nombre_pagina}}</div>
+    </div>
+    </script>
+
     <!-- PANEL MENU LATERAL -->
 
-    <div data-role="panel" id="panelmenu" data-position="left" data-display="reveal" data-theme="a">
+    <div data-role="panel" id="panelmenu" data-position="left" data-display="overlay" data-theme="a">
+        <a href="#" data-rel="close" data-icon="delete">Cerrar</a>
         <ul data-role="listview">
             <li>
                 <a href="#paginaInformes" data-transition="none">Informes</a>
@@ -221,13 +223,6 @@
         <!-- panel content goes here -->
     </div><!-- /panel -->
 
-    <!-- Plantillas de Handlebars -->
-    <script id="header-template" type="text/x-handlebars-template">
-        <div class="migan-pan">
-        <div class="nombre-pagina">{{nombre_pagina}}</div>
-    </div>
-    </script>
-
     <!-- Scripts de la Aplicación -->
 
     <script src="js/jquery.js"></script>
@@ -237,7 +232,7 @@
     <script src="js/jquery.mobile-1.4.2.js"></script>
     <script id="panel-init">
         $(function() {
-            $( "body>[data-role='panel']" ).panel();
+            $( "#panelmenu" ).panel();
         });
     </script>
     <script src="js/handlebars-v1.3.0.js"></script>
