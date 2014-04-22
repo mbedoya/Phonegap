@@ -7,6 +7,7 @@ var nombreUsuario = '';
 var config = {
     Servicios: { Antares: 'http://190.90.184.13:9081/AntaresWebServices/InterfaceAntaresServiceService'  }
 };
+
 var migasPan = {};
 migasPan['paginaHome'] = 'INICIO';
 migasPan['paginaInformes'] = 'INFORMES';
@@ -48,14 +49,6 @@ $(document).ready( function(){
     });
 
     // INICIO DE SESIÓN
-
-    function finalizarInicioSesion(){
-        if (new Date().getSeconds() < 60){
-            $.mobile.changePage("#paginaHome", {transition: "none"});
-        }else{
-            $.mobile.changePage("#paginaErrorInicioSesion", {transition: "slideup"});
-        }
-    }
 
     //Click al botón para iniciar sesión
     $("#botonIniciarSesion").on("click", function(){
@@ -109,39 +102,6 @@ $(document).ready( function(){
         );
     });
 
-    //Click al Menú
-    $("#menu").on("click", function(){
-        $("#pageone #enlaceMenu").click();
-    });
-
-    //Click al Enlace Mapa
-    $("#enlaceMapa").on("click", function(){
-        $.mobile.changePage("mapa.html", {transition: "none"});
-    });
-
-    //Click al Boton Traer Datos (SOAP)
-    $("#pagedemo #botonTraerDatos").on("click", function(){
-
-        var url = 'http://wsf.cdyne.com/WeatherWS/Weather.asmx/';
-        var metodo = 'GetWeatherInformation';
-        var mensaje =
-            '<soap:Envelope > \
-            <soap:Body> \
-            <GetWeatherInformation  /> \
-            </soap:Body> \
-            </soap:Envelope>';
-        var soapAction = 'http://ws.cdyne.com/WeatherWS/GetWeatherInformation';
-
-        var servicioSoap = new soap();
-        servicioSoap.invocarMetodo(url, metodo, mensaje, soapAction,
-            function(msg) {
-                alert('exito');
-            },function (msg) {
-                alert('error');
-            }
-        );
-    });
-
     //Click al Boton Traer Datos (REST)
     $("#pagedemo #botonTraerDatosRest").on("click", function(){
 
@@ -174,9 +134,9 @@ var index_js = function(){
 
         //Iniciarlizar los eventos cuando el dispositivo esté listo
         //Evento Menú
-        aplicacion.escucharEvento(aplicacion.EVENTO_BOTON_MENU, aplicacion.sender.onBotonMenuPresionado);
+        //aplicacion.escucharEvento(aplicacion.EVENTO_BOTON_MENU, aplicacion.sender.onBotonMenuPresionado);
         //Evento Botón Atrás
-        aplicacion.escucharEvento(aplicacion.EVENTO_BOTON_ATRAS, aplicacion.sender.onBotonAtrasPresionado);
+        //aplicacion.escucharEvento(aplicacion.EVENTO_BOTON_ATRAS, aplicacion.sender.onBotonAtrasPresionado);
     }
 
     //Método que se invoca cuando se presiona el botón Menú

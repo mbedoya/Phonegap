@@ -194,3 +194,5 @@ div .menu-horizontal li
 #graficoSugerido .ui-progressbar-value {
     background: #330033;
 }
+
+.ui-page { -webkit-backface-visibility: hidden !important;  }

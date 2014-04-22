@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.4.custom.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
@@ -46,6 +46,10 @@
 
         </div><!-- /content -->
 
+        <div data-role="footer" data-position="fixed">
+            <h4>Pata</h4>
+        </div> <!-- /footer -->
+
     </div><!-- /Página de Login -->
 
     <!-- Página Error en inicio de sesión -->
@@ -67,7 +71,7 @@
     <div data-role="page" id="paginaHome" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu">Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none">Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -76,16 +80,16 @@
             <div class="menu-horizontal">
                 <ul>
                     <li>
-                        <a href="#paginaInformes"><img src="img/icono_informes.jpg" />Informes</a>
+                        <a href="#paginaInformes" data-transition="none"><img src="img/icono_informes.jpg" />Informes</a>
                     </li>
                     <li>
-                        <a href="#paginaInformes"><img src="img/mapa.jpg" />Geo Informes</a>
+                        <a href="#paginaInformes" data-transition="none"><img src="img/mapa.jpg" />Geo Informes</a>
                     </li>
                 </ul>
             </div>
         </div><!-- /content -->
 
-        <div data-role="footer">
+        <div data-role="footer" data-position="fixed">
             <h4>Pata</h4>
         </div> <!-- /footer -->
 
@@ -96,7 +100,7 @@
     <div data-role="page" id="paginaInformes" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu">Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none">Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -105,16 +109,16 @@
             <div class="menu-horizontal">
                 <ul>
                     <li>
-                        <a href="#paginaConsultasGerenteZona"><img src="img/icono_informes.jpg" />Consultas</a>
+                        <a href="#paginaConsultasGerenteZona" data-transition="none"><img src="img/icono_informes.jpg" />Consultas</a>
                     </li>
                     <li>
-                        <a href="#paginaInscripcionesGerenteZona"><img src="img/icono_informes.jpg" />Inscripciones Detalladas</a>
+                        <a href="#paginaInscripcionesGerenteZona" data-transition="none"><img src="img/icono_informes.jpg" />Inscripciones Detalladas</a>
                     </li>
                 </ul>
             </div>
         </div><!-- /content -->
 
-        <div data-role="footer">
+        <div data-role="footer" data-position="fixed">
             <h4>Pata</h4>
         </div> <!-- /footer -->
 
@@ -125,7 +129,7 @@
     <div data-role="page" id="paginaConsultasGerenteZona" data-theme="a" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu">Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none" >Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -164,7 +168,7 @@
             </div>
         </div><!-- /content -->
 
-        <div data-role="footer">
+        <div data-role="footer" data-position="fixed">
             <h4>Pata</h4>
         </div> <!-- /footer -->
 
@@ -175,7 +179,7 @@
     <div data-role="page" id="paginaInscripcionesGerenteZona" >
 
         <div data-role="header" id="header">
-            <a class="enlaceMenu" href="#panelmenu">Menu</a>
+            <a class="enlaceMenu" href="#panelmenu" data-transition="none" >Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
@@ -190,53 +194,11 @@
             </div>
         </div><!-- /content -->
 
-        <div data-role="footer">
+        <div data-role="footer" data-position="fixed">
             <h4>Pata</h4>
         </div> <!-- /footer -->
 
     </div><!-- /page -->
-
-    <div data-role="page" id="pagetwo">
-
-        <div data-role="header">
-            <h1>My App</h1>
-        </div><!-- /header -->
-
-        <div data-role="content" class="ui-content">
-            <a href="#pageone" data-transition="none" >Go to Page One</a>
-        </div>
-    </div>
-
-    <!-- Ventana -->
-    <div data-role="page" data-dialog="true" id="windowpage">
-        <div data-role="header">
-            <h1>My App</h1>
-        </div><!-- /header -->
-
-        <div data-role="content" class="ui-content">
-            I am a Window
-            <a href="#pageone" data-transition="none" >Go to Page One</a>
-        </div>
-    </div>
-
-    <div data-role="page" id="pagedemo">
-
-        <div data-role="header" id="header">
-        </div>
-
-        <div id="divList" data-role="content">
-            <div id="DEMO">
-                <input id="botonTraerDatos" type="button" value="GET DATA Soap" />
-            </div>
-            <ul id="details" data-role="listview" data-inset="true"></ul>
-        </div>
-
-        <div id="divList" data-role="content">
-            <div id="DEMO">
-                <input id="botonTraerDatosRest" type="button" value="GET DATA Rest" />
-            </div>
-        </div>
-    </div>
 
     <!-- PANEL MENU LATERAL -->
 
@@ -262,8 +224,8 @@
     <!-- Plantillas de Handlebars -->
     <script id="header-template" type="text/x-handlebars-template">
         <div class="migan-pan">
-            <div class="nombre-pagina">{{nombre_pagina}}</div>
-        </div>
+        <div class="nombre-pagina">{{nombre_pagina}}</div>
+    </div>
     </script>
 
     <!-- Scripts de la Aplicación -->
@@ -273,16 +235,16 @@
     <script src="js/comunicacion/serviciosweb/soap.js"></script>
     <script src="js/comunicacion/serviciosweb/ajax.js"></script>
     <script src="js/jquery.mobile-1.4.2.js"></script>
+    <script id="panel-init">
+        $(function() {
+            $( "body>[data-role='panel']" ).panel();
+        });
+    </script>
     <script src="js/handlebars-v1.3.0.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" src="js/dispositivos/app.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script id="panel-init">
-        $(document).ready(function() {
-            $( "body>[data-role='panel']" ).panel();
-        });
-    </script>
     <script type="text/javascript">
         var miControlador = new index_js();
         miControlador.iniciar();
