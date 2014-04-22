@@ -1,25 +1,51 @@
 
+/** CONFIGURACIONES GLOBALES ***/
+
 //All Loaded Pages
 var pages = [];
 var nombreUsuario = '';
-
-$('div[data-role=page]').bind('pagecreate', function(event){
-
-    console.log('pagecreate');
-    console.log(event.target);
-
-    //Adicionar los Headers a todas las páginas
-    var contexto = {nombre_pagina: "Inicio"};
-    var plantillaHeader = Handlebars.compile($("#header-template").html());
-    var htmlHeader = plantillaHeader(contexto);
-    $(event.target).children("div[data-role=content]").prepend(htmlHeader);
-
-    console.log("breadcrumb added");
-});
+var config = {
+    Servicios: { Antares: 'http://190.90.184.13:9081/AntaresWebServices/InterfaceAntaresServiceService'  }
+};
+var migasPan = {};
+migasPan['paginaHome'] = 'INICIO';
+migasPan['paginaInformes'] = 'INFORMES';
+migasPan['paginaConsultasGerenteZona'] = 'CONSULTAS DE GERENTE DE ZONA';
+migasPan['paginaInscripcionesGerenteZona'] = 'INSCRIPCIONES DETALLADAS DE GERENTE DE ZONA';
 
 $(document).ready( function(){
 
     // ***** EVENTOS DE INTERFAZ *****
+
+    $('div[data-role=page]').bind('pagecreate', function(event){
+        //Adicionar los Headers a todas las páginas
+        var contexto = {nombre_pagina: migasPan[($(event.target).attr("id"))]};
+        var plantillaHeader = Handlebars.compile($("#header-template").html());
+        var htmlHeader = plantillaHeader(contexto);
+        $(event.target).children("div[data-role=content]").prepend(htmlHeader);
+    });
+
+    $("#paginaConsultasGerenteZona").bind("pageinit", function(event){
+        $( "#graficoSugerido" ).progressbar({
+            value: 37
+        });
+
+        $( "#graficoConsultas" ).progressbar({
+            value: 95
+        });
+
+        $( "#graficoProyectado" ).progressbar({
+            value: 120
+        });
+
+        $( "#graficoCreditos" ).progressbar({
+            value: 20
+        });
+
+        $( "#graficoContado" ).progressbar({
+            value: 5
+        });
+    });
 
     // INICIO DE SESIÓN
 
@@ -44,7 +70,7 @@ $(document).ready( function(){
         var usuario = $("#inputUsuario").val();
         var clave = $("#inputClave").val();
 
-        var url = 'http://190.90.184.13:9081/AntaresWebServices/InterfaceAntaresServiceService';
+        var url = config.Servicios.Antares;
         var metodo = 'validacionAntares';
         var mensaje =
             '<SOAP-ENV:Envelope > \

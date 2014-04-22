@@ -4,15 +4,16 @@
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.4.custom.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
     <title>My App</title>
 </head>
 <body>
 
     <!-- Página de Login -->
-    <div data-role="page" id="paginaInicioSesion" data-theme="b" >
+    <div data-role="page" id="paginaInicioSesion" data-theme="a" >
 
         <div data-role="header" >
                 <h1>Novaventa</h1>
@@ -41,11 +42,6 @@
                         <input id="botonIniciarSesion" type="button" value="Enviar" />
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2">
-                        <textarea name="address"cols="30" rows="20" id="txtResultado"></textarea>
-                    </td>
-                </tr>
             </table>
 
         </div><!-- /content -->
@@ -66,36 +62,137 @@
 
     </div><!-- /pagina error inicio sesion -->
 
+    <!-- HOME -->
+
     <div data-role="page" id="paginaHome" >
 
         <div data-role="header" id="header">
-            <div id="menu">
-
-            </div>
-            <a id="enlaceMenu"  class="enlaceMenu" href="#panelmenu">Menu</a>
+            <a class="enlaceMenu" href="#panelmenu">Menu</a>
             <h1>Novaventa</h1>
         </div><!-- /header -->
 
-        <div data-role="panel" id="panelmenu" data-position="left" data-display="push">
-            <ul>
-                <li><a href="#pagetwo" data-transition="none">Consultas</a></li>
-                <li>Informes</li>
-                <li><a href="#windowpage" data-transition="none">Dialog</a></li>
-                <li> <a id="enlaceMapa" data-transition="none">Mapa</a></li>
-                <li> <a href="#pagedemo" data-transition="none">Servicio</a></li>
-            </ul>
-            <!-- panel content goes here -->
-        </div><!-- /panel -->
+        <div data-role="content" >
+            <div id="nombreUsaurio"></div>
+            <div class="menu-horizontal">
+                <ul>
+                    <li>
+                        <a href="#paginaInformes"><img src="img/icono_informes.jpg" />Informes</a>
+                    </li>
+                    <li>
+                        <a href="#paginaInformes"><img src="img/mapa.jpg" />Geo Informes</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4>Pata</h4>
+        </div> <!-- /footer -->
+
+    </div><!-- /page -->
+
+    <!-- INFORMES -->
+
+    <div data-role="page" id="paginaInformes" >
+
+        <div data-role="header" id="header">
+            <a class="enlaceMenu" href="#panelmenu">Menu</a>
+            <h1>Novaventa</h1>
+        </div><!-- /header -->
 
         <div data-role="content" >
             <div id="nombreUsaurio"></div>
-            <div class="app">
+            <div class="menu-horizontal">
+                <ul>
+                    <li>
+                        <a href="#paginaConsultasGerenteZona"><img src="img/icono_informes.jpg" />Consultas</a>
+                    </li>
+                    <li>
+                        <a href="#paginaInscripcionesGerenteZona"><img src="img/icono_informes.jpg" />Inscripciones Detalladas</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4>Pata</h4>
+        </div> <!-- /footer -->
+
+    </div><!-- /page -->
+
+    <!-- CONSULTAS GERENTE DE ZONA -->
+
+    <div data-role="page" id="paginaConsultasGerenteZona" data-theme="a" >
+
+        <div data-role="header" id="header">
+            <a class="enlaceMenu" href="#panelmenu">Menu</a>
+            <h1>Novaventa</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" >
+            <div id="nombreUsaurio"></div>
+            <div class="menu-horizontal">
+                <div style="color: #005599; font-size: 17px; font-weight: bold; float: left; margin: 5px; display: inline">
+                    CAMPAÑA 7
+                </div>
+                <div style="color: #005599; font-size: 14px; float: left; margin: 5px; display: inline">
+                    ZONA 5
+                </div>
+                <div style="color: #4B946A; font-size: 14px;; float: right">
+                    6 días faltantes<br />
+                    90% ejecutado
+                </div>
+                <div style="clear: both;"></div>
+                <div id="zonaGraficos" style="width: 250px;" >
+                    Sugerido
+                    <div id="graficoSugerido">
+                    </div>
+                    Consultas
+                    <div id="graficoConsultas">
+                    </div>
+                    Proyectado
+                    <div id="graficoProyectado">
+                    </div>
+                    Creditos
+                    <div id="graficoCreditos">
+                    </div>
+                    Contado
+                    <div id="graficoContado">
+                    </div>
+                </div>
 
             </div>
         </div><!-- /content -->
-        <!--<div data-role="footer">
-            <h4>My Footer</h4>
-        </div>--> <!-- /footer -->
+
+        <div data-role="footer">
+            <h4>Pata</h4>
+        </div> <!-- /footer -->
+
+    </div><!-- /page -->
+
+    <!-- INSCRIPCIONES DETALLADAS GERENTE DE ZONA -->
+
+    <div data-role="page" id="paginaInscripcionesGerenteZona" >
+
+        <div data-role="header" id="header">
+            <a class="enlaceMenu" href="#panelmenu">Menu</a>
+            <h1>Novaventa</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" >
+            <div id="nombreUsaurio"></div>
+            <div class="menu-horizontal">
+                <div>
+                    REGION 1
+                    CAMPAÑA 3
+                    ZONA 5
+                </div>
+            </div>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4>Pata</h4>
+        </div> <!-- /footer -->
 
     </div><!-- /page -->
 
@@ -141,6 +238,27 @@
         </div>
     </div>
 
+    <!-- PANEL MENU LATERAL -->
+
+    <div data-role="panel" id="panelmenu" data-position="left" data-display="reveal" data-theme="a">
+        <ul data-role="listview">
+            <li>
+                <a href="#paginaInformes" data-transition="none">Informes</a>
+                <ul>
+                    <li><a href="#paginaConsultasGerenteZona" data-transition="none">Consultas</a></li>
+                    <li><a href="#paginaInscripcionesGerenteZona" data-transition="none">Inscripciones Detalladas</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#paginaInformes" data-transition="none">Geo Informes</a>
+                <ul>
+                    <li><a href="#paginaConsultas" data-transition="none">Zonas</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- panel content goes here -->
+    </div><!-- /panel -->
+
     <!-- Plantillas de Handlebars -->
     <script id="header-template" type="text/x-handlebars-template">
         <div class="migan-pan">
@@ -156,10 +274,15 @@
     <script src="js/comunicacion/serviciosweb/ajax.js"></script>
     <script src="js/jquery.mobile-1.4.2.js"></script>
     <script src="js/handlebars-v1.3.0.js"></script>
-    <script src="js/xml2json.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" src="js/dispositivos/app.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script id="panel-init">
+        $(document).ready(function() {
+            $( "body>[data-role='panel']" ).panel();
+        });
+    </script>
     <script type="text/javascript">
         var miControlador = new index_js();
         miControlador.iniciar();
